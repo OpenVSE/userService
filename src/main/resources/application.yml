@@ -1,0 +1,24 @@
+server:
+    port: 8082
+
+spring:
+    application:
+        name: USER-SERVICE
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/userService
+        username: postgres
+        password: teste2021
+    jpa:
+        hibernate:
+            ddl-auto: create # When you launch the application for the first time - switch "none" at "create"
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl:
+            defaultZone: http://localhost:8081/eureka
+        instace: localhost
