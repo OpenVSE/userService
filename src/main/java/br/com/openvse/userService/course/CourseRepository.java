@@ -1,6 +1,6 @@
-package br.com.openvse.userService.repository;
+package br.com.openvse.userService.course;
 
-import br.com.openvse.userService.entity.Course;
+import br.com.openvse.userService.course.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

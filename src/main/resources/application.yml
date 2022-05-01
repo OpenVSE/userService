@@ -22,3 +22,9 @@ eureka:
         serviceUrl:
             defaultZone: http://localhost:8081/eureka
         instace: localhost
+
+app:
+  jwt:
+    issuer: openVSE-userService
+    secret: 7572c0cfcbcea5111a162e3fa499180d
+    expiration: 30

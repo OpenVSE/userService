@@ -1,18 +1,12 @@
-package br.com.openvse.userService.entity;
+package br.com.openvse.userService.course;
 
 import java.util.Set;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import br.com.openvse.userService.professor.Professor;
+import br.com.openvse.userService.student.Student;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,15 +20,18 @@ import lombok.NoArgsConstructor;
 @Table(name = "course")
 public class Course {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
-  private Set<Student> students;
+    @Column(length = 100, unique = true)
+    private String name;
 
-  @ManyToMany
-  @JoinTable(name = "course_professor")
-  private Set<Professor> professors;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+    private Set<Student> students;
+
+    @ManyToMany
+    @JoinTable(name = "course_professor")
+    private Set<Professor> professors;
 
 }
